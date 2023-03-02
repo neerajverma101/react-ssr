@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Route, Link, Routes } from 'react-router-dom';
 import { Home } from './pages/Home';
 import { About } from './pages/About';
 import { Articles } from './pages/Articles';
@@ -19,17 +19,14 @@ const App = () => {
           <Link to="/articles">Articles</Link>
         </li>
       </ul>
-      <Switch>
-        <Route path="/" exact>
-          <Home />
+      <Routes>
+        <Route path="/" element={<Home />} >
         </Route>
-        <Route path="/about">
-          <About />
+        <Route path="/about" element={<About />}>
         </Route>
-        <Route path="/articles">
-          <Articles />
+        <Route path="/articles" element={<Articles />}>
         </Route>
-      </Switch>
+      </Routes>
     </BrowserRouter>
   );
 }
